@@ -1051,8 +1051,9 @@ def possible_matches(dps, product_ids=None):
     for cfg in available_configs():
         parsed = TuyaDeviceConfig(cfg)
         try:
-            if parsed.matches(dps, product_ids):
-                yield parsed
+            yield parsed
+            # if parsed.matches(dps, product_ids):
+            #     yield parsed
         except TypeError:
             _LOGGER.error("Parse error in %s", cfg)
 
